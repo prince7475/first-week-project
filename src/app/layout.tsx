@@ -2,15 +2,20 @@ import type { Metadata } from "next";
 
 import "./globals.css";
 import { Header } from "../components";
+import { SESSION_COOKIE_NAME } from "../constants";
+import { cookies } from "next/headers";
 
 export const metadata: Metadata = {
   title: "Next.js on Firebase App Hosting",
   description: "",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+
+  const session = (await cookies()).get(SESSION_COOKIE_NAME)?.value || null;
+
   return (
     <html lang="en" className="dark-theme">
       <head>
@@ -22,7 +27,7 @@ export default function RootLayout({
       </head>
       <body>
         <div className="dots" />
-        <Header />
+        <Header session={session}/>
         {children}
         <div className="bottom-gradient" />
       </body>
