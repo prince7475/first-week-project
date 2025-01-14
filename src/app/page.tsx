@@ -31,24 +31,6 @@ export default function Home() {
             to see the server in action.
           </p>
         </article>
-        <article className="card">
-          <h2>Global CDN</h2>
-          <p>
-            Cached content is served by{" "}
-            <Link
-              href="https://cloud.google.com/cdn/docs/overview"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Google Cloud CDN
-            </Link>
-            , a fast and secure way to host cached content globally. Visit
-            <Link href="/ssg">
-              {" "}
-              <code>/ssg</code>
-            </Link>{" "}
-          </p>
-        </article>
       </section>
     </main>
   );
